@@ -1,0 +1,58 @@
+<p>Componente de interpolación</p>
+<!--Poner comillas simples al retornar una clase-->
+<div 
+    [ngClass]="nombre ? 'clase-ejemplo' : ''"
+    [style.color]="nombre ? 'white' : ''">
+    {{nombre.toUpperCase() != '' ? nombre.toUpperCase(): 'No hay nada cargado'}}    
+</div>
+<br>
+
+<div appMiDirectiva>
+    Mi directiva
+</div>
+
+<br>
+
+<button (click)="nombre='Texto-Ejemplo HTML j3j3'">Asignar Texto</button>
+<button (click)="nombre=''">Quitar Texto</button>
+
+<br><br><br>
+<ul>
+    <li *ngFor="let persona of personas">
+        Nombre: {{persona}}
+    </li>
+</ul>
+<br><br>
+
+<div *ngIf="bandera">
+    La bandera está activada
+</div>
+
+<button (click)="bandera=true">Encender</button>
+<button (click)="bandera=false">Apagar</button>
+<br>
+<div [ngSwitch]="valorString">
+    <span *ngSwitchCase="'uno'">EEEE UNO</span>
+    <span *ngSwitchCase="'dos'">EEEE DOS</span>
+</div>
+<br>
+<button (click)="valorString='uno'">UNO</button>
+<button (click)="valorString='dos'">DOS</button>
+<br><br>
+<button (click)="decirHola()">Holiwis</button>
+<br>
+<br>
+
+<p>
+    <input id="nombre" [(ngModel)]="nombre"/>
+    <input id="apellido" [(ngModel)]="apellido"/>
+
+</p>
+
+<button (click)="verDatos()">Ver datos</button>
+<button (click)="cargarDatos()">Cargar</button>
+
+<br>
+<div>Hoy es {{hoy | date : 'HH:mm'}}</div>
+<br>
+<div>Texto pipe {{'Mi Texto Pipe' | miPipe : 'Mayus'}}</div>

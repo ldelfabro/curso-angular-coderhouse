@@ -1,0 +1,29 @@
+
+{{miPropiedad | mipipe2}}
+<br>
+{{miPropiedad | mipipe2 : '?'}}
+<br>
+{{miPropiedad | mipipe2 : '?' : 'Otro gato, otro gato, otro gato'}}
+<br>
+{{alumno | json}}
+<br>
+{{alumno | alumno}}
+<br>
+
+<br>
+<div *ngFor="let tipo of colecioAlumnos">
+    <div appOtraDirectiva [alumno]="tipo">{{tipo | alumno}}</div>
+</div>
+
+<div>
+    <div appOtraDirectiva [alumno]="alumno">
+        Esto es una directiva
+    </div>
+</div>
+<br>
+<br>
+<div>
+    <span *appRepetir="10">
+        Holiwis<br>
+    </span>
+</div>

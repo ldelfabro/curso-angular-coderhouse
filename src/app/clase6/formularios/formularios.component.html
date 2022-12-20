@@ -1,0 +1,40 @@
+<div class="m-4">
+    <form [formGroup]="formularioPrincipal" (ngSubmit)="submit()"
+    [ngClass]="formularioPrincipal.valid ? '' : ''">
+
+        Nombre: <input type="text" formControlName="nombre" required>
+        
+        <br>
+        <span *ngIf="formularioPrincipal.get('nombre')?.invalid">El nombre es incorrecto</span>
+        <span *ngIf="formularioPrincipal.get('nombre')?.invalid && formularioPrincipal.get('nombre')?.dirty">El nombre es requerido</span>
+        <br>
+
+        Edad: <input type="number" formControlName="edad"><br>
+        Género: <input type="text" formControlName="genero"><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+    <br>
+    {{formularioPrincipal.value | json }}
+    <br>
+    {{formularioPrincipal.valid ? 'Valido' : 'Inválido' }}
+</div>
+
+<br>
+<br>
+
+<input type="text" [formControl]="miControl">
+
+<br>
+<h4>Heroe</h4>
+<form  #heroForm="ngForm" (ngSubmit)="submit2()">
+    <div>
+        <label for="name">Nombre</label><br>
+        <input type="text" name="name" id="name" [(ngModel)]="heroe.name">
+    </div>
+    <div>
+        <label for="alterEgo"></label><br>
+        <input type="text" name="alterEgo" id="alterEgo" [(ngModel)]="heroe.alterEgo">
+    </div>
+    <button type="submit">Guardar</button>
+</form>

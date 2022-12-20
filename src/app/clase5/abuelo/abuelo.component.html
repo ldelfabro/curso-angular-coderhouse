@@ -1,0 +1,7 @@
+<div class="col-md-4">
+    <span>Alumno seleccionado: {{seleccionado.Nombre}}</span>
+    <div *ngFor="let uno of alumnos">
+        <app-hijo-uno [alumno]="uno" (seleccionado)="alumnoSeleccionado($event)"></app-hijo-uno>
+    </div>
+    <app-hijo-dos></app-hijo-dos>
+</div>
